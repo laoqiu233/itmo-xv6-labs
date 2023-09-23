@@ -1,10 +1,10 @@
 #include "kernel/types.h"
 #include "user/user.h"
 
-int main(int argc, char** argv) {
-    char* parent_message = "Hello from parent";
-    char* child_message = "Hello from child";
+const char* parent_message = "Hello from parent";
+const char* child_message = "Hello from child";
 
+int main(int argc, char** argv) {
     int p2c_pipefd[2];
     int c2p_pipefd[2];
     
@@ -26,6 +26,8 @@ int main(int argc, char** argv) {
         close(p2c_pipefd[0]);
         write(c2p_pipefd[1], child_message, strlen(child_message));
         close(c2p_pipefd[1]);
+
+        free(buf);
     } else {
         close(p2c_pipefd[0]);
         close(c2p_pipefd[1]);
@@ -37,6 +39,7 @@ int main(int argc, char** argv) {
         buf[size] = 0;
         printf("%d: got %s\n", getpid(), buf);
         close(c2p_pipefd[0]);
+        free(buf);
     }
 
     exit(0);
