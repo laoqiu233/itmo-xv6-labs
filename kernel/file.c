@@ -92,6 +92,8 @@ fileclose(struct file *f)
     iput(f->ip);
     end_op();
   }
+
+  bd_free(f);
 }
 
 // Get metadata about file f.
