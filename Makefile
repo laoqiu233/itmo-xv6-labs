@@ -55,7 +55,7 @@ QEMU = qemu-system-riscv64
 CC = $(TOOLPREFIX)gcc
 AS = $(TOOLPREFIX)gas
 LD = $(TOOLPREFIX)ld
-OBJCOPY = $(TOOLPREFIX)objcopy
+OBJCOPY = $(TOOLPREFIX)objcopys
 OBJDUMP = $(TOOLPREFIX)objdump
 
 CFLAGS = -Wall -Werror -O -fno-omit-frame-pointer -ggdb -gdwarf-2
@@ -159,6 +159,7 @@ UPROGS=\
 	$U/_pingpong\
 	$U/_dumptests\
 	$U/_dump2tests\
+	$U/_alloctest
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
