@@ -204,6 +204,7 @@ void lst_print(struct list *lst);
 void *bd_malloc(uint64 nbytes);
 void bd_free(void *p);
 void bd_init(void *base, void *end);
+void bd_print();
 
 // number of elements in fixed-size array
 #define NELEM(x) (sizeof(x)/sizeof((x)[0]))
