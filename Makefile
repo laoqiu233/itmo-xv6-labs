@@ -160,7 +160,8 @@ UPROGS=\
 	$U/_dumptests\
 	$U/_dump2tests\
 	$U/_alloctest\
-	$U/_alloctest_original
+	$U/_alloctest_original\
+	$U/_forktest2
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
